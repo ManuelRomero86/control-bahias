@@ -1,0 +1,14 @@
+{
+  "Traspaso1": {
+    "estatus": "EN PROCESO DE VALIDACIÓN",
+    "color": "#f1c40f"
+  },
+  "Traspaso2": {
+    "estatus": "LISTA PARA RUTEAR",
+    "color": "#27ae60"
+  },
+  "Traspaso3": {
+    "estatus": "DISPONIBLE",
+    "color": "#7f8c8d"
+  }
+}
