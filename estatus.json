@@ -1,14 +1,11 @@
 {
-  "Traspaso1": {
-    "estatus": "EN PROCESO DE VALIDACIÓN",
-    "color": "#f1c40f"
-  },
-  "Traspaso2": {
-    "estatus": "LISTA PARA RUTEAR",
-    "color": "#27ae60"
-  },
-  "Traspaso3": {
-    "estatus": "DISPONIBLE",
-    "color": "#7f8c8d"
-  }
+  "1": {"estatus": "Proceso surtido"},
+  "2": {"estatus": "Libre"},
+  "3": {"estatus": "Proceso validacion"},
+  "4": {"estatus": "Proceso carga"},
+  "5": {"estatus": "Proceso validacion"},
+  "6": {"estatus": "Libre"},
+  "7": {"estatus": "Libre"},
+  "8": {"estatus": "Libre"},
+  "9": {"estatus": "Libre"}
 }
