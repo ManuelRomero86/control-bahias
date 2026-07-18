@@ -1,11 +1,11 @@
 {
-  "1": {"estatus": "Proceso surtido"},
-  "2": {"estatus": "Libre"},
-  "3": {"estatus": "Proceso validacion"},
-  "4": {"estatus": "Proceso carga"},
-  "5": {"estatus": "Proceso validacion"},
-  "6": {"estatus": "Libre"},
-  "7": {"estatus": "Libre"},
-  "8": {"estatus": "Libre"},
-  "9": {"estatus": "Libre"}
+  "Embarque1": {"estatus": "Proceso de validacion"},
+  "Embarque2": {"estatus": "Proceso surtido"},
+  "Embarque3": {"estatus": "Lista para carga"},
+  "Embarque4": {"estatus": "Libre"},
+  "Embarque5": {"estatus": "Proceso surtido"},
+  "Recibo1": {"estatus": "Libre"},
+  "Recibo2": {"estatus": "Proceso validacion"},
+  "Recibo3": {"estatus": "Proceso ruteo"},
+  "Recibo4": {"estatus": "Proceso ruteo"}
 }
