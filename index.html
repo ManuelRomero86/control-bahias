@@ -19,18 +19,17 @@
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        const id = params.get('id'); 
-        // Aquí limpiamos para que solo muestre el nombre, no la URL
+        const id = params.get('id');
         document.getElementById('bahiaNombre').innerText = "Bahía " + id;
 
-        fetch('estatus.json')
+        // El 'nocache' asegura que siempre descargue la versión nueva de tu JSON
+        fetch('estatus.json?nocache=' + new Date().getTime())
             .then(response => response.json())
             .then(data => {
                 const info = data[id];
                 const box = document.getElementById('statusBox');
                 if(info) {
                     box.innerText = info.estatus;
-                    // Colores
                     if(info.estatus.includes("Libre")) box.style.backgroundColor = "#7f8c8d";
                     else if(info.estatus.includes("surtido")) box.style.backgroundColor = "#3498db";
                     else if(info.estatus.includes("validacion")) box.style.backgroundColor = "#f1c40f";
