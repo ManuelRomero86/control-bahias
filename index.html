@@ -19,10 +19,10 @@
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
+        // decodeURIComponent permite que los espacios (%20) se lean como espacios reales
+        const id = decodeURIComponent(params.get('id')); 
         document.getElementById('bahiaNombre').innerText = "Bahía " + id;
 
-        // Usamos timestamp para forzar actualización
         fetch('estatus.json?nocache=' + new Date().getTime())
             .then(response => response.json())
             .then(data => {
@@ -30,11 +30,10 @@
                 const box = document.getElementById('statusBox');
                 if(info) {
                     box.innerText = info.estatus;
-                    // Colores según el estatus
                     if(info.estatus.includes("Libre")) box.style.backgroundColor = "#7f8c8d";
                     else if(info.estatus.includes("surtido")) box.style.backgroundColor = "#3498db";
                     else if(info.estatus.includes("validacion")) box.style.backgroundColor = "#f1c40f";
-                    else box.style.backgroundColor = "#27ae60"; // Verde por defecto
+                    else box.style.backgroundColor = "#27ae60";
                 } else {
                     box.innerText = "Bahía no encontrada";
                     box.style.backgroundColor = "#e74c3c";
