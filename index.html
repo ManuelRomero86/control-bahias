@@ -2,42 +2,30 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estatus de Bahía</title>
-    <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f7f6; }
-        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; width: 90%; max-width: 400px; }
-        h1 { color: #2c3e50; font-size: 1.5em; margin-bottom: 10px; }
-        #statusBox { padding: 20px; color: white; font-weight: bold; font-size: 22px; border-radius: 12px; margin-top: 15px; text-transform: uppercase; }
-    </style>
+    <title>Prueba de Bahía</title>
 </head>
 <body>
-    <div class="card">
-        <h1 id="bahiaNombre">Cargando...</h1>
-        <div id="statusBox">Cargando...</div>
-    </div>
+    <h1 id="bahiaNombre">Cargando...</h1>
+    <div id="statusBox">Cargando...</div>
 
     <script>
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
         document.getElementById('bahiaNombre').innerText = "Bahía " + id;
 
-        // El 'nocache' asegura que siempre descargue la versión nueva de tu JSON
-        fetch('estatus.json?nocache=' + new Date().getTime())
+        // Versión directa sin caché forzada
+        fetch('estatus.json')
             .then(response => response.json())
             .then(data => {
                 const info = data[id];
-                const box = document.getElementById('statusBox');
                 if(info) {
-                    box.innerText = info.estatus;
-                    if(info.estatus.includes("Libre")) box.style.backgroundColor = "#7f8c8d";
-                    else if(info.estatus.includes("surtido")) box.style.backgroundColor = "#3498db";
-                    else if(info.estatus.includes("validacion")) box.style.backgroundColor = "#f1c40f";
-                    else box.style.backgroundColor = "#27ae60";
+                    document.getElementById('statusBox').innerText = info.estatus;
                 } else {
-                    box.innerText = "Bahía no encontrada";
-                    box.style.backgroundColor = "#e74c3c";
+                    document.getElementById('statusBox').innerText = "Error: ID no encontrado en JSON";
                 }
+            })
+            .catch(err => {
+                document.getElementById('statusBox').innerText = "Error cargando archivo JSON";
             });
     </script>
 </body>
