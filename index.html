@@ -19,9 +19,9 @@
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        // decodeURIComponent permite que los espacios (%20) se lean como espacios reales
         const id = decodeURIComponent(params.get('id')); 
-        document.getElementById('bahiaNombre').innerText = "Bahía " + id;
+        // Aquí quitamos "Bahía " para que solo muestre el ID
+        document.getElementById('bahiaNombre').innerText = id;
 
         fetch('estatus.json?nocache=' + new Date().getTime())
             .then(response => response.json())
